@@ -23,14 +23,14 @@ function render(){document.documentElement.lang=state.language;document.document
  const m=E.models.find(x=>x.key===selected);if(m){const api=m.mode==='api';if(api&&framework==='sentence')framework='sdk';if(!api&&framework==='sdk')framework='sentence';
  document.querySelectorAll('[data-framework]').forEach(b=>{b.hidden=(api&&b.dataset.framework==='sentence')||(!api&&b.dataset.framework==='sdk');b.classList.toggle('active',b.dataset.framework===framework);b.setAttribute('aria-pressed',b.dataset.framework===framework);});
  const generated=E.codeFor(selected,framework,state);$('install').textContent='$ '+generated.install;$('code').textContent=generated.code;
- $('download').href='data:text/x-python;charset=utf-8,'+encodeURIComponent(generated.code);$('download').download='khamisembed_'+selected+'.py';
+ $('download').href='data:text/x-python;charset=utf-8,'+encodeURIComponent(generated.code);$('download').download='khamisragtools_'+selected+'.py';
  const notes=[];if(m.family==='e5')notes.push(txt('E5: تُضاف query: للأسئلة وpassage: للمستندات. في التجميع تُستخدم query: لكل النصوص.','E5 uses query: for queries and passage: for documents. Clustering uses query: for all inputs.'));
  notes.push(api?txt('الكود يقرأ OPENAI_API_KEY من متغير البيئة. نصوصك ستُرسل إلى OpenAI عند تشغيله، وقد تُحتسب تكلفة استخدام.','The code reads OPENAI_API_KEY from the environment. Running it sends text to OpenAI and may incur usage charges.'):txt('أول تشغيل ينزّل أوزان الموديل؛ بعد ذلك يعمل الاستدلال محليًا. تحتاج مساحة وذاكرة كافيتين.','The first run downloads model weights; inference then runs locally. Ensure sufficient disk space and memory.'));
  if(state.hardware==='cpu'&&m.size==='large'&&!api)notes.push(txt('هذا الموديل كبير نسبيًا وقد يكون بطيئًا على CPU. جرّب GPU أو نصوصًا أقصر وموديلًا أصغر.','This larger model may be slow on CPU. Consider a GPU or shorter inputs and a smaller model.'));
  if(state.hardware==='mps'&&!api)notes.push(txt('توافق Apple Silicon يعتمد على إصدار PyTorch والموديل؛ استخدم CPU إذا واجهت عملية غير مدعومة.','Apple Silicon support depends on PyTorch and the model; use CPU if an operation is unsupported.'));
  $('model-details').innerHTML=`<strong dir="ltr">${m.id}</strong> · <a href="${m.source}" target="_blank" rel="noopener noreferrer">${txt('توثيق الموديل ↗','Model documentation ↗')}</a><p class="limits">${notes.join('<br>')}</p>`;
  }
- syncControls();save();}
+ syncControls();save();if(m&&window.parent!==window)window.parent.postMessage({type:'khamisragtools-embedding-selection',key:m.key,name:m.name,id:m.id,dim:m.dim,mode:m.mode,settings:state},'*');}
 // Give stable values to existing translated controls.
 ['search','retrieval','cluster'].forEach((v,i)=>$('task').options[i].value=v);['cpu','cuda','mps'].forEach((v,i)=>$('hardware').options[i].value=v);
 const sdk=document.createElement('button');sdk.type='button';sdk.className='tab';sdk.dataset.framework='sdk';sdk.textContent='OpenAI SDK';document.querySelector('.tabs').append(sdk);
@@ -38,8 +38,15 @@ for(const [id,values] of Object.entries(groupValues))$(id).querySelectorAll('but
 document.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{state.deployment=b.dataset.value;selected='';render();});
 ['task','hardware','privacy','length'].forEach(k=>$(k).onchange=()=>{state[k]=$(k).value;selected='';render();});
 document.querySelectorAll('[data-framework]').forEach(b=>b.onclick=()=>{framework=b.dataset.framework;render();});
-$('language').onclick=()=>{state.language=state.language==='ar'?'en':'ar';render();};
+$('language').onclick=()=>{state.language=state.language==='ar'?'en':'ar';render();if(window.parent!==window)window.parent.postMessage({type:'embedpilot-language-changed',language:state.language},'*');};
+window.addEventListener('message',event=>{if(event.source!==window.parent)return;if(event.data?.type==='embedpilot-language'&&['ar','en'].includes(event.data.language)&&state.language!==event.data.language){state.language=event.data.language;render();}if(event.data?.type==='khamisragtools-theme'&&['dark','light'].includes(event.data.theme)){document.documentElement.classList.toggle('theme-light',event.data.theme==='light');document.documentElement.style.colorScheme=event.data.theme;document.querySelector('meta[name="theme-color"]').content=event.data.theme==='light'?'#f6f3eb':'#0b1727';}});
 $('recommend').onclick=()=>{render();$('results').focus({preventScroll:true});$('results').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});toast(txt('تم تحديث الترشيحات حسب إعداداتك.','Recommendations updated for your settings.'));};
 $('reset').onclick=()=>{state={...E.defaults,language:state.language};selected='';framework='sentence';render();toast(txt('تمت إعادة الإعدادات.','Settings reset.'));};
 $('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('code').textContent);toast(txt('تم نسخ الكود.','Code copied.'));}catch{toast(txt('تعذر النسخ؛ استخدم تحميل Python.','Copy is unavailable; use Download Python.'));}};
 render();
+if(window.parent!==window){
+ const reportHeight=()=>window.parent.postMessage({type:'khamisragtools-embed-height',height:document.body.scrollHeight},'*');
+ new ResizeObserver(reportHeight).observe(document.body);
+ window.addEventListener('load',reportHeight);
+ reportHeight();
+}

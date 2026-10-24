@@ -1,40 +1,23 @@
-# KhamisEmbed
+# KhamisRagTools
 
-A bilingual Arabic/English text embedding model advisor, with a text-focused visual identity and orange/charcoal palette.
+A simple bilingual Arabic/English RAG learning and recommendation website. Open `index.html` in a browser. No build step, backend, credentials, or deployment is required.
 
-## Run locally
+## What is included
 
-Run `python -m http.server 5174` in this folder and open http://localhost:5174. No build, backend, or API key is needed for the website.
-
-## Features
-
-- RTL/LTR Arabic and English interface; settings saved locally in the browser.
-- Explicit rules filter models by language, privacy, deployment, and input length, then prioritize hardware and user preferences.
-- Local choices: Multilingual E5 Small/Base, BGE-M3, and English MiniLM L6.
-- API choices: OpenAI text-embedding-3-small/large. Private data settings exclude API providers even when cloud deployment is selected.
-- Model cards link to original documentation and show dimensions and context limits.
-- Python code generation for Sentence Transformers, LangChain, and OpenAI SDK with model-specific E5 prefixes and environment-based API credentials.
-- Copy code or download a Python starter. The website never executes models, receives user text, or requests API credentials.
-
-## Recommendation limits
-
-The ordering is a transparent heuristic, not benchmark evidence or a guarantee of retrieval quality. Each result explains the applicable rules. Context limits apply per input and count tokens, not words. Hardware preferences are not memory compatibility guarantees. The supplied Python is a starter, not a complete RAG application. First local use downloads weights. API usage sends inputs to OpenAI and may incur charges. Model inference is not executed in automated website checks.
-
-Specifications were reviewed on October 16, 2026 against the model cards linked in `engine.js`. Recheck upstream documentation when updating the catalog.
+- A numbered clockwise RAG diagram with ten clickable stages and a distinct SVG pictogram for each stage. Stage cards show one name in the selected language and orbit slowly around the center. Hovering pauses the motion, and a play/pause control is provided. Motion starts off when the browser requests reduced motion.
+- Nine guided questionnaires with six settings each (three essentials and three expandable details), 29 specific tool or model recommendations, reasons, documentation links, and selected-setting summaries. Choices have prominent selected states.
+- Every guided stage offers two code examples: direct RAG integration and LangChain integration, with relevant Python package commands where needed. These examples connect to the outputs of preceding stages.
+- The existing full embedding advisor, including its recommendation engine, Python code generation, copy, download, and saved settings, embedded in stage 4. Its old hero and three introductory cards are hidden in the stage view so the questions and results begin immediately. The shared language toggle also updates it.
+- Language, answers, and embedding settings saved in browser local storage. Stage links use `#stage-N`; the back button and browser history work.
+- A warm dark yellow accent on the wheel's background lines and selected controls elsewhere, plus a dark/light appearance switch in the header. Wheel cards, icons, and labels retain their cool colors. Dark mode is the default; the chosen appearance is saved locally and also updates the embedded Embedding advisor.
 
 ## Files
 
-- `index.html`: bilingual layout and original design styles.
-- `theme.css`: orange/charcoal theme and responsive application styling.
-- `engine.js`: model catalog, recommendation rules, and Python generator; browser and Node compatible.
-- `app.js`: interactions, translations, persistence, downloads, and accessible state.
-- `translations.js`: English interface strings.
-- `vercel.json`: buildless static deployment configuration.
+- `index.html`, `style.css`, `appearance.css`, `explorer.js`, `code-examples.js`, `logo.svg`: explorer homepage, guided stages, appearance switch, two code modes, and brand mark.
+- `embedding-advisor.html`, `theme.css`, `brand.css`, `advisor-appearance.css`, `app.js`, `engine.js`, `translations.js`, `favicon.svg`: preserved embedding advisor with matching dark and light appearances.
 
-## Deploy
+## Notes
 
-Import the private GitHub repository in Vercel. Use **Other** framework, repository root, no build command, and output directory `.`. No environment variables are needed for the website. Git integration publishes future commits automatically when enabled.
+Recommendations are transparent starting points, not benchmark results. Review each linked tool's current documentation, dependencies, and data handling, then test on your own corpus. The site does not run models, transmit project text, or ask for API keys. Generated examples may require installing the libraries described in their official documentation. The optional Google Fonts request can fall back to system fonts offline.
 
-## Privacy
-
-Settings stay in localStorage. The UI loads fonts from Google Fonts; no analytics are installed. Documentation links navigate to their respective providers. API credentials belong only in the Python environment where a user chooses to execute generated API code.
+Nothing has been published or made public.
