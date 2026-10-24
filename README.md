@@ -5,7 +5,7 @@ A simple bilingual Arabic/English RAG learning and recommendation website. Open 
 ## What is included
 
 - A numbered clockwise RAG diagram with ten clickable stages and a distinct SVG pictogram for each stage. Stage cards show one name in the selected language and orbit slowly around the center. Hovering pauses the motion, and a play/pause control is provided. Motion starts off when the browser requests reduced motion.
-- A RAG Simulation tab with ten animated perspective-3D scenes. Documents move through ingestion, cleaning, slicing, vectorization, storage, search, reranking, prompt assembly, answer generation, and evaluation. Each scene offers three selectable methods that change the displayed intermediate data. Users can edit documents and a question, set chunk size, overlap, and retrieval count, rotate the scene by dragging or arrow keys, replay a scene, and run all stages automatically at adjustable speed. It runs locally in the browser with simplified vectors and an extractive answer; it does not call a real embedding model or LLM. Reduced-motion preferences are respected.
+- A RAG Simulation tab based on a clear infographic-style 3D flowchart with connected, clickable process blocks and animated data packets. A nine-card architecture selector covers Naive, Advanced, Modular, Hybrid, Graph, Agentic, Corrective, Self-RAG, and Long-context RAG; selecting one changes the diagram and route. The ten pipeline stages and their three method choices remain interactive. Users can edit documents and a question, set chunk size, overlap, and retrieval count, rotate the diagram by dragging or arrow keys, replay, and run stages automatically at adjustable speed. It runs locally in the browser with simplified vectors and an extractive answer; it does not call a real embedding model or LLM. Reduced-motion preferences are respected.
 - Nine guided questionnaires with six settings each (three essentials and three expandable details), 29 specific tool or model recommendations, reasons, documentation links, and selected-setting summaries. Choices have prominent selected states.
 - Every guided stage offers two code examples: direct RAG integration and LangChain integration, with relevant Python package commands where needed. These examples connect to the outputs of preceding stages.
 - The existing full embedding advisor, including its recommendation engine, Python code generation, copy, download, and saved settings, embedded in stage 4. Its old hero and three introductory cards are hidden in the stage view so the questions and results begin immediately. The shared language toggle also updates it.
@@ -14,7 +14,7 @@ A simple bilingual Arabic/English RAG learning and recommendation website. Open 
 
 ## Files
 
-- `index.html`, `style.css`, `appearance.css`, `simulation.css`, `simulation-engine.css`, `explorer.js`, `simulation.js`, `simulation-engine.js`, `code-examples.js`, `logo.svg`: explorer homepage, guided stages, animated simulation, appearance switch, two code modes, and brand mark.
+- `index.html`, `style.css`, `appearance.css`, `simulation.css`, `simulation-engine.css`, `rag-diagram.css`, `explorer.js`, `simulation.js`, `rag-diagram.js`, `code-examples.js`, `logo.svg`: explorer homepage, guided stages, animated simulation, appearance switch, two code modes, and brand mark.
 - `embedding-advisor.html`, `theme.css`, `brand.css`, `advisor-appearance.css`, `app.js`, `engine.js`, `translations.js`, `favicon.svg`: preserved embedding advisor with matching dark and light appearances.
 
 ## Notes
