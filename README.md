@@ -5,6 +5,7 @@ A simple bilingual Arabic/English RAG learning and recommendation website. Open 
 ## What is included
 
 - A numbered clockwise RAG diagram with ten clickable stages and a distinct SVG pictogram for each stage. Stage cards show one name in the selected language and orbit slowly around the center. Hovering pauses the motion, and a play/pause control is provided. Motion starts off when the browser requests reduced motion.
+- A RAG Simulation tab that walks through all ten stages using editable documents, a user question, chunk size, overlap, and retrieval count. It shows each stage's intermediate data, an extractive answer with source, and illustrative coverage metrics. It runs locally in the browser with simplified vectors; it does not call a real embedding model or LLM.
 - Nine guided questionnaires with six settings each (three essentials and three expandable details), 29 specific tool or model recommendations, reasons, documentation links, and selected-setting summaries. Choices have prominent selected states.
 - Every guided stage offers two code examples: direct RAG integration and LangChain integration, with relevant Python package commands where needed. These examples connect to the outputs of preceding stages.
 - The existing full embedding advisor, including its recommendation engine, Python code generation, copy, download, and saved settings, embedded in stage 4. Its old hero and three introductory cards are hidden in the stage view so the questions and results begin immediately. The shared language toggle also updates it.
@@ -13,7 +14,7 @@ A simple bilingual Arabic/English RAG learning and recommendation website. Open 
 
 ## Files
 
-- `index.html`, `style.css`, `appearance.css`, `explorer.js`, `code-examples.js`, `logo.svg`: explorer homepage, guided stages, appearance switch, two code modes, and brand mark.
+- `index.html`, `style.css`, `appearance.css`, `simulation.css`, `explorer.js`, `simulation.js`, `code-examples.js`, `logo.svg`: explorer homepage, guided stages, interactive simulation, appearance switch, two code modes, and brand mark.
 - `embedding-advisor.html`, `theme.css`, `brand.css`, `advisor-appearance.css`, `app.js`, `engine.js`, `translations.js`, `favicon.svg`: preserved embedding advisor with matching dark and light appearances.
 
 ## Notes

@@ -10,12 +10,13 @@
   <script>try{if(JSON.parse(localStorage.getItem('embedpilot-explorer')||'{}').theme==='light')document.documentElement.classList.add('theme-light')}catch{}</script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="appearance.css">
+  <link rel="stylesheet" href="simulation.css">
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="site-header">
     <button class="brand" id="homeBrand" type="button" aria-label="KhamisRagTools home"><span class="brand-mark"><img src="logo.svg" alt=""></span><span class="brand-name">Khamis<span class="brand-accent">Rag</span>Tools</span></button>
-    <div class="header-actions"><span class="header-kicker" id="headerKicker">خريطة بناء أنظمة الاسترجاع المعزّز</span><button id="themeToggle" class="theme-toggle" type="button" aria-pressed="true">☀ الوضع الفاتح</button><button id="language" class="language" type="button" aria-label="Switch language">EN <span>↗</span></button></div>
+    <div class="header-actions"><nav class="site-nav" aria-label="Main navigation"><button id="navStages" class="nav-tab active" type="button" aria-current="page">المراحل</button><button id="navSimulation" class="nav-tab" type="button">RAG Simulation</button></nav><span class="header-kicker" id="headerKicker">خريطة بناء أنظمة الاسترجاع المعزّز</span><button id="themeToggle" class="theme-toggle" type="button" aria-pressed="true">☀ الوضع الفاتح</button><button id="language" class="language" type="button" aria-label="Switch language">EN <span>↗</span></button></div>
   </header>
   <main>
     <section id="home" class="home-view">
@@ -23,6 +24,15 @@
       <div class="orbit-shell"><div class="orbit" id="orbit"><div class="orbit-track orbit-track-outer"></div><div class="orbit-track orbit-track-inner"></div><div class="orbit-dashes"></div><div class="orbit-center"><div class="center-icon">✦</div><div class="center-ar" id="centerTitle">مراحل RAG</div><div class="center-caption" id="centerCaption">اضغط على مرحلة للاستكشاف</div></div><div id="orbitNodes"></div></div></div>
       <div class="stage-rail" id="stageRail"></div>
       <div class="home-bottom"><span id="homeBottom">من المصدر إلى التقييم، خطوة بخطوة</span><span class="bottom-line"></span><button type="button" id="motionToggle" class="motion-toggle" aria-pressed="true">⏸ إيقاف الحركة</button></div>
+    </section>
+    <section id="simulationView" class="sim-view" hidden>
+      <div class="sim-heading"><span class="sim-kicker" id="simKicker">محاكاة تفاعلية · من المستند إلى الإجابة</span><h1 id="simTitle">شاهد رحلة RAG كاملة</h1><p id="simIntro">غيّر المستندات والسؤال والإعدادات، ثم تتبّع ما يحدث في كل مرحلة.</p><span class="sim-disclaimer" id="simDisclaimer">محاكاة تعليمية داخل المتصفح؛ لا تستخدم نموذج Embedding أو LLM حقيقيًا.</span></div>
+      <div class="sim-controls">
+        <div class="sim-input-head"><h2 id="simInputsTitle">ابدأ ببياناتك</h2><div class="sim-samples"><button type="button" id="simSampleAr">مثال عربي</button><button type="button" id="simSampleEn">English sample</button></div></div>
+        <div class="sim-input-grid"><label class="sim-field sim-doc-field"><span id="simDocsLabel">المستندات (افصل بينها بسطر ---)</span><textarea id="simDocs" rows="8" maxlength="12000" spellcheck="false"></textarea></label><div class="sim-input-side"><label class="sim-field"><span id="simQuestionLabel">سؤال المستخدم</span><textarea id="simQuestion" rows="3" maxlength="500"></textarea></label><div class="sim-settings"><label class="sim-field"><span id="simSizeLabel">حجم الجزء</span><select id="simSize"><option value="120">120</option><option value="200" selected>200</option><option value="300">300</option></select></label><label class="sim-field"><span id="simOverlapLabel">التداخل</span><select id="simOverlap"><option value="0">0</option><option value="30" selected>30</option><option value="60">60</option></select></label><label class="sim-field"><span id="simTopKLabel">عدد النتائج</span><select id="simTopK"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></label></div><div class="sim-actions"><button id="simStart" class="sim-primary" type="button">ابدأ المحاكاة</button><button id="simNext" type="button" disabled>الخطوة التالية</button><button id="simAuto" type="button">تشغيل تلقائي</button><button id="simReset" type="button">إعادة</button></div><p class="sim-error" id="simError" role="alert" hidden></p></div></div>
+      </div>
+      <div class="sim-flow" aria-label="RAG journey"><div class="sim-flow-head"><h2 id="simFlowTitle">خريطة الرحلة</h2><span id="simProgress">جاهز للبدء</span></div><p class="sim-lane-title" id="simIndexTitle">تجهيز المعرفة</p><div class="sim-lane sim-index-lane" id="simIndexLane"></div><div class="sim-query-route"><span id="simQueryRoute">سؤال المستخدم ↓</span><span class="sim-route-arrow" aria-hidden="true">↘</span></div><p class="sim-lane-title" id="simAnswerTitle">من الاسترجاع إلى الإجابة</p><div class="sim-lane sim-answer-lane" id="simAnswerLane"></div><div class="sim-final-output" id="simFinalOutput" hidden><strong id="simFinalLabel">الإجابة + المصادر</strong><p id="simFinalText"></p></div></div>
+      <div class="sim-inspector"><div class="sim-inspector-head"><span id="simStepNumber">الخطوة ٠ / ١٠</span><h2 id="simStepTitle">جاهز لاستكشاف الرحلة</h2><p id="simStepDescription">اضغط «ابدأ المحاكاة» لعرض ما يحدث للبيانات في كل خطوة.</p></div><div class="sim-output"><span id="simOutputLabel">ما الذي يحدث هنا؟</span><pre id="simOutput"></pre></div></div>
     </section>
     <section id="stageView" class="stage-view" hidden>
       <div class="stage-toolbar"><button id="backHome" class="back-button" type="button"><span>↩</span><span id="backText">العودة إلى المراحل</span></button><span id="stageCounter">01 / 10</span></div>
@@ -34,6 +44,7 @@
   </main>
   <footer><span>Khamis<span class="brand-accent">Rag</span>Tools</span><span id="footerText">دليل بسيط لبناء RAG خطوة بخطوة</span></footer>
   <script src="code-examples.js"></script>
+  <script src="simulation.js"></script>
   <script src="explorer.js"></script>
 </body>
 </html>
