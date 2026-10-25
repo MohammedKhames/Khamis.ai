@@ -5,7 +5,7 @@ A simple bilingual Arabic/English RAG learning and recommendation website. Open 
 ## What is included
 
 - A numbered clockwise RAG diagram with ten clickable stages and a distinct SVG pictogram for each stage. Stage cards show one name in the selected language and orbit slowly around the center. Hovering pauses the motion, and a play/pause control is provided. Motion starts off when the browser requests reduced motion.
-- A simplified RAG Simulation tab with two visible sections: the animated 3D diagram of all ten clickable stages at the top, and the original clickable journey map at the bottom. The diagram can be rotated by dragging or arrow keys. Both views use built-in Arabic and English example documents; this is an educational browser-only simulation with simplified vectors, not a real embedding model or LLM. Reduced-motion preferences are respected.
+- A RAG Simulation tab with the animated 3D journey diagram as its single overview. The diagram can be rotated by dragging or arrow keys. Clicking any stage opens a dedicated visual lab showing inputs, transformation, and outputs. Each lab offers three methods and relevant editable inputs or parameters, including chunk size and overlap, retrieval count, and example documents and questions. The results are recalculated in Arabic and English and the motion can be replayed. This is an educational browser-only simulation with simplified vectors, not a real embedding model or LLM. Reduced-motion preferences are respected.
 - Nine guided questionnaires with six settings each (three essentials and three expandable details), 29 specific tool or model recommendations, reasons, documentation links, and selected-setting summaries. Choices have prominent selected states.
 - Every guided stage offers two code examples: direct RAG integration and LangChain integration, with relevant Python package commands where needed. These examples connect to the outputs of preceding stages.
 - The existing full embedding advisor, including its recommendation engine, Python code generation, copy, download, and saved settings, embedded in stage 4. Its old hero and three introductory cards are hidden in the stage view so the questions and results begin immediately. The shared language toggle also updates it.
@@ -14,7 +14,7 @@ A simple bilingual Arabic/English RAG learning and recommendation website. Open 
 
 ## Files
 
-- `index.html`, `style.css`, `appearance.css`, `simulation.css`, `simulation-engine.css`, `rag-diagram.css`, `explorer.js`, `simulation.js`, `rag-diagram.js`, `code-examples.js`, `logo.svg`: explorer homepage, guided stages, animated simulation, appearance switch, two code modes, and brand mark.
+- `index.html`, `style.css`, `appearance.css`, `simulation.css`, `simulation-engine.css`, `rag-diagram.css`, `stage-lab.css`, `explorer.js`, `simulation.js`, `rag-diagram.js`, `stage-lab.js`, `code-examples.js`, `logo.svg`: explorer homepage, guided stages, animated simulation and stage labs, appearance switch, two code modes, and brand mark.
 - `embedding-advisor.html`, `theme.css`, `brand.css`, `advisor-appearance.css`, `app.js`, `engine.js`, `translations.js`, `favicon.svg`: preserved embedding advisor with matching dark and light appearances.
 
 ## Notes

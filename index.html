@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="simulation.css">
   <link rel="stylesheet" href="simulation-engine.css">
   <link rel="stylesheet" href="rag-diagram.css">
+  <link rel="stylesheet" href="stage-lab.css">
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
@@ -29,8 +30,7 @@
     </section>
     <section id="simulationView" class="sim-view" hidden>
       <div class="sim-engine"><div class="sim-engine-head"><div><span class="sim-engine-kicker" id="simEngineKicker">مخطط RAG التفاعلي ثلاثي الأبعاد</span><h2 id="simEngineTitle">مراحل RAG العشر</h2></div><span class="sim-engine-counter" id="simEngineCounter">01 / 10</span></div><div class="rag-diagram-caption" id="ragDiagramCaption"></div><div class="sim-viewport" id="simViewport" tabindex="0" aria-label="RAG 3D simulation"><div class="sim-space" id="simSpace"></div><span class="sim-viewport-hint" id="simViewportHint">اسحب لتدوير المخطط</span></div></div>
-      <div class="sim-flow" aria-label="RAG journey"><div class="sim-flow-head"><h2 id="simFlowTitle">خريطة الرحلة</h2><span id="simProgress">جاهز للبدء</span></div><p class="sim-lane-title" id="simIndexTitle">تجهيز المعرفة</p><div class="sim-lane sim-index-lane" id="simIndexLane"></div><div class="sim-query-route"><span id="simQueryRoute">سؤال المستخدم ↓</span><span class="sim-route-arrow" aria-hidden="true">↘</span></div><p class="sim-lane-title" id="simAnswerTitle">من الاسترجاع إلى الإجابة</p><div class="sim-lane sim-answer-lane" id="simAnswerLane"></div><div class="sim-final-output" id="simFinalOutput" hidden><strong id="simFinalLabel">الإجابة + المصادر</strong><p id="simFinalText"></p></div></div>
-      <div hidden><textarea id="simDocs"></textarea><textarea id="simQuestion"></textarea><select id="simSize"><option value="200">200</option></select><select id="simOverlap"><option value="30">30</option></select><select id="simTopK"><option value="2">2</option></select><p id="simError"></p></div>
+      <section id="simLab" class="sim-lab" hidden></section>
     </section>
     <section id="stageView" class="stage-view" hidden>
       <div class="stage-toolbar"><button id="backHome" class="back-button" type="button"><span>↩</span><span id="backText">العودة إلى المراحل</span></button><span id="stageCounter">01 / 10</span></div>
@@ -44,6 +44,7 @@
   <script src="code-examples.js"></script>
   <script src="simulation.js"></script>
   <script src="rag-diagram.js"></script>
+  <script src="stage-lab.js"></script>
   <script src="explorer.js"></script>
 </body>
 </html>
