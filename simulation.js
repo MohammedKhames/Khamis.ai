@@ -71,7 +71,7 @@ function start(){try{results=calculate();current=0;$('simError').hidden=true;sto
 function next(){if(current<0||current>=9)return;current++;if(current===9)stopAuto();render();}
 function toggleAuto(){if(timer){stopAuto();render();return;}if(current<0||current>=9){try{results=calculate();current=0;$('simError').hidden=true;}catch(error){showError(error.message);return;}}timer=setInterval(()=>{if(current>=9){stopAuto();render();return;}current++;if(current>=9)stopAuto();render();},Math.round(3900/speed));render();}
 function setMode(stage,mode){if(!modeCatalog[stage]?.some(x=>x[0]===mode))return;modes[stage]=mode;stopAuto();try{results=calculate();current=stage;$('simError').hidden=true;render();}catch(error){showError(error.message);}}
-function init(lang,icon){language=lang;iconFor=icon;if(initialized){if(current>=0){try{results=calculate();}catch{current=-1;results=[];}}render();return;}initialized=true;setSample(lang==='en'?'en':'ar');render();}
+function init(lang,icon){language=lang;iconFor=icon;if(initialized){$('simDocs').value=samples[language].docs;$('simQuestion').value=samples[language].question;if(current>=0){try{results=calculate();}catch{current=-1;results=[];}}render();return;}initialized=true;setSample(language);render();}
 root.KhamisSimulation={init,setMode,jumpStage(stage){if(stage<0||stage>9)return;stopAuto();try{results=calculate();current=stage;$('simError').hidden=true;render();}catch(error){showError(error.message);}},pause(){stopAuto();render();}};
 if(typeof module!=='undefined'&&module.exports)module.exports={simulate(input,locale='ar'){language=locale==='en'?'en':'ar';return calculate(input);},samples,modeCatalog,defaultModes};
 })(typeof window!=='undefined'?window:globalThis);
