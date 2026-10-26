@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from './vendor/three.module.js';
 import {OrbitControls} from './vendor/OrbitControls.js';
 
 const cyan=0x66d7d0,gold=0xf1c775,blue=0x78aee8,red=0xf18f80;
@@ -9,10 +9,10 @@ const V=(x=0,y=0,z=0)=>new THREE.Vector3(x,y,z);
 const ease=t=>1-Math.pow(1-clamp(t,0,1),3);
 const labels={ar:['مصادر','نص منظّف','أجزاء','متجه','مخزن','نتائج','ترتيب','موجّه','إجابة','تقييم'],en:['Sources','Cleaned text','Chunks','Vector','Store','Results','Ranking','Prompt','Answer','Evaluation']};
 
-function rounded(ctx,x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+function rounded(ctx,x,y,w,h,r){ctx.beginPath();if(ctx.roundRect){ctx.roundRect(x,y,w,h,r);return;}ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
 function wrap(ctx,text,maxWidth,maxLines=5){const lines=[];for(const raw of String(text).split('\n')){let line='';for(const word of raw.split(/\s+/)){const test=line?line+' '+word:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word;if(lines.length>=maxLines)return lines;}else line=test;}if(line)lines.push(line);if(lines.length>=maxLines)return lines;}return lines;}
 function texture(title,body,{accent=cyan,lang='en',overlap=0,compact=false}={}){
- const canvas=document.createElement('canvas');canvas.width=1024;canvas.height=640;const c=canvas.getContext('2d');
+ const canvas=document.createElement('canvas');const scale=window.innerWidth<900 ? .5 : 1;canvas.width=1024*scale;canvas.height=640*scale;const c=canvas.getContext('2d');c.scale(scale,scale);
  c.fillStyle='#102b3a';rounded(c,8,8,1008,624,44);c.fill();c.strokeStyle='#6ab0bd';c.lineWidth=8;c.stroke();
  c.fillStyle=`#${new THREE.Color(accent).getHexString()}`;rounded(c,30,30,18,580,9);c.fill();
  c.direction=lang==='ar'?'rtl':'ltr';c.textAlign=lang==='ar'?'right':'left';const x=lang==='ar'?960:72;
