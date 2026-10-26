@@ -15,12 +15,13 @@
   <link rel="stylesheet" href="rag-diagram.css">
   <link rel="stylesheet" href="stage-lab.css">
   <link rel="stylesheet" href="stage-3d.css">
+  <link rel="stylesheet" href="ecosystems.css?v=ecosystems-3">
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="site-header">
     <button class="brand" id="homeBrand" type="button" aria-label="KhamisRagTools home"><span class="brand-mark"><img src="logo.svg" alt=""></span><span class="brand-name">Khamis<span class="brand-accent">Rag</span>Tools</span></button>
-    <div class="header-actions"><nav class="site-nav" aria-label="Main navigation"><button id="navStages" class="nav-tab active" type="button" aria-current="page">المراحل</button><button id="navSimulation" class="nav-tab" type="button">RAG Simulation</button></nav><span class="header-kicker" id="headerKicker">خريطة بناء أنظمة الاسترجاع المعزّز</span><button id="themeToggle" class="theme-toggle" type="button" aria-pressed="true">☀ الوضع الفاتح</button><button id="language" class="language" type="button" aria-label="Switch language">EN <span>↗</span></button></div>
+    <div class="header-actions"><nav class="site-nav" aria-label="Main navigation"><button id="navStages" class="nav-tab active" type="button" aria-current="page">المراحل</button><button id="navSimulation" class="nav-tab" type="button">RAG Simulation</button><button id="navEcosystems" class="nav-tab" type="button">Ecosystems</button></nav><span class="header-kicker" id="headerKicker">خريطة بناء أنظمة الاسترجاع المعزّز</span><button id="themeToggle" class="theme-toggle" type="button" aria-pressed="true">☀ الوضع الفاتح</button><button id="language" class="language" type="button" aria-label="Switch language">EN <span>↗</span></button></div>
   </header>
   <main>
     <section id="home" class="home-view">
@@ -33,6 +34,7 @@
       <div class="sim-engine"><div class="sim-engine-head"><div><span class="sim-engine-kicker" id="simEngineKicker">مخطط RAG التفاعلي ثلاثي الأبعاد</span><h2 id="simEngineTitle">مراحل RAG العشر</h2></div><span class="sim-engine-counter" id="simEngineCounter">01 / 10</span></div><div class="rag-diagram-caption" id="ragDiagramCaption"></div><div class="sim-viewport" id="simViewport" tabindex="0" aria-label="RAG 3D simulation"><div class="sim-space" id="simSpace"></div><span class="sim-viewport-hint" id="simViewportHint">اسحب لتدوير المخطط</span></div></div>
       <section id="simLab" class="sim-lab" hidden></section>
     </section>
+    <section id="ecosystemsView" class="ecosystems-view" hidden></section>
     <section id="stageView" class="stage-view" hidden>
       <div class="stage-toolbar"><button id="backHome" class="back-button" type="button"><span>↩</span><span id="backText">العودة إلى المراحل</span></button><span id="stageCounter">01 / 10</span></div>
       <div class="stage-hero"><div class="stage-hero-copy"><span class="stage-pill" id="stagePill">المرحلة 01</span><h1 id="stageTitle"></h1><p id="stageIntro"></p></div><div class="stage-hero-glyph" id="stageGlyph"></div></div>
@@ -47,7 +49,10 @@
   <script src="rag-diagram.js"></script>
   <script src="stage-fallback.js"></script>
   <script src="stage-lab.js"></script>
-  <script src="explorer.js"></script>
+  <script src="ecosystems-data.js?v=ecosystems-3"></script>
+  <script src="ecosystems.js?v=ecosystems-3"></script>
+  <script src="explorer.js?v=ecosystems-3"></script>
   <script type="module" src="stage-3d.js"></script>
 </body>
 </html>
+
