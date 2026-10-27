@@ -21,7 +21,7 @@ html.theme-light{color-scheme:light;--ink:#20333d;--muted:#5d7078;--line:#ded7c7
 html.theme-light body,html.theme-light.embedded body{background:#f6f3eb;color:#20333d}
 html.theme-light header{background:#fffaf0;border-color:#dfcfaa}
 html.theme-light .brand{color:#1d3039}
-html.theme-light .brand span:last-child{color:#986719}
+html.theme-light .brand span:last-child{color:#147e79}
 html.theme-light .lang{background:#fffaf0;color:#604517;border-color:#d0b577}
 html.theme-light .panel,html.theme-light .usage-note{background:#fffdf8;border-color:#d9d2c3;color:#20333d;box-shadow:0 7px 22px #51483215}
 html.theme-light.embedded .settings{background:linear-gradient(155deg,#f8edd5,#eee4d0);border-color:#cfb47c;border-inline-start-color:#af7d2a}

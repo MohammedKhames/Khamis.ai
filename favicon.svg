@@ -1,25 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Khamis.AI logo">
-  <defs>
-    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#15364b"/>
-      <stop offset="1" stop-color="#081729"/>
-    </linearGradient>
-    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#a0f2e7"/>
-      <stop offset="1" stop-color="#56cdbf"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#ffe1a0"/>
-      <stop offset="1" stop-color="#e8ad4f"/>
-    </linearGradient>
-  </defs>
-  <rect x="1.5" y="1.5" width="61" height="61" rx="17" fill="url(#tile)" stroke="#5c9fa3" stroke-width="1.5"/>
-  <path d="M8 48A26 26 0 0 1 48 9" fill="none" stroke="#77dcd1" stroke-width="1.4" opacity=".38"/>
-  <path d="M56 18a26 26 0 0 1-10 37" fill="none" stroke="#e9bb68" stroke-width="1.4" opacity=".43"/>
-  <rect x="15" y="13" width="9" height="38" rx="4.5" fill="#f4fffc"/>
-  <path d="M24 29 42 13h11L33 34h-9z" fill="url(#mint)"/>
-  <path d="M24 31h10l20 20H42L24 35z" fill="url(#gold)"/>
-  <path d="M24 29 34 34l-9 7-1-6z" fill="#d6f8ef"/>
-  <circle cx="51" cy="12" r="2.3" fill="#f9cc72"/>
-  <circle cx="55" cy="51" r="2.3" fill="#7ae5d9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Khamis.AI Orbit K logo">
+  <defs><linearGradient id="disk" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#214b59"/><stop offset="1" stop-color="#0a1b30"/></linearGradient></defs>
+  <circle cx="32" cy="32" r="27" fill="url(#disk)" stroke="#78dfd2" stroke-width="1.8"/>
+  <ellipse cx="32" cy="32" rx="31" ry="12" fill="none" stroke="#74d6ca" stroke-width="2" opacity=".9" transform="rotate(-31 32 32)"/>
+  <path d="M22 17v30M23 32l21-17M23 32l21 18" fill="none" stroke="#f6fbf7" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="53" cy="18" r="4" fill="#f3bf61" stroke="#0a1b30" stroke-width="1.8"/>
 </svg>
