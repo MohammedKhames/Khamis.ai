@@ -1,8 +1,7 @@
 .ecosystems-view{max-width:1960px;margin:0 auto;padding:34px clamp(12px,2vw,36px) 64px;background:#fbfaf6;color:#17252e}
-.eco-hero{max-width:980px;margin:0 auto 24px;text-align:center}
+.eco-hero{max-width:980px;margin:0 auto 18px;text-align:center}
 .eco-eyebrow{display:inline-block;color:#6b46ae;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-.eco-hero h1{font-size:clamp(29px,4vw,56px);line-height:1.14;letter-spacing:-.035em;margin:12px 0 10px;color:#14212d}.eco-hero h1 span{color:#2475cf;white-space:nowrap}
-.eco-hero p{margin:0 auto;max-width:760px;color:#50616b;font-size:13px;line-height:1.8}
+.eco-hero h1{font-size:clamp(29px,4vw,56px);line-height:1.14;letter-spacing:-.035em;margin:12px 0 0;color:#14212d}
 .eco-map-head{display:flex;align-items:center;justify-content:space-between;gap:15px;max-width:1530px;margin:0 auto 10px;color:#54636d;font-size:11px}.eco-legend{white-space:nowrap;color:#196b38;font-weight:800}.eco-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#21a750;margin-inline-end:7px}
 .eco-scroll{max-width:1530px;margin:0 auto;overflow:visible;border:1px solid #d9e0de;border-radius:20px;background:#fff;box-shadow:0 16px 40px #20334b16;direction:ltr}
 .eco-scroll:focus-visible{outline:2px solid #3183cf;outline-offset:3px}
@@ -35,6 +34,6 @@ html.theme-light .ecosystems-view{background:#fbfaf6;color:#17252e}html.theme-li
  .eco-logo{width:29px;height:29px}.eco-name{font-size:10px}
  .eco-hub,.eco-links{display:none}
 }
-@media(max-width:690px){.ecosystems-view{padding:23px 12px 40px}.eco-hero h1{font-size:clamp(27px,7vw,37px)}.eco-hero h1 span{display:block;margin-top:4px}.eco-map-head{font-size:10px}.eco-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.eco-card{height:60px}}
+@media(max-width:690px){.ecosystems-view{padding:23px 12px 40px}.eco-hero h1{font-size:clamp(27px,7vw,37px)}.eco-map-head{font-size:10px}.eco-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.eco-card{height:60px}}
 @media(max-width:350px){.eco-columns{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.eco-card,.eco-bubble,.eco-chain{animation:none!important;transition:none!important}}
