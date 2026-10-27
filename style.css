@@ -4,7 +4,7 @@
 @media(max-width:520px){.hero-copy h1{font-size:31px}.hero-copy p{font-size:12px}.orbit-shell{margin:26px auto 12px}.orbit{max-width:390px}.orbit-node{width:21%;border-radius:12px}.node-label{font-size:7px}.node-glyph{font-size:17px}.node-number{font-size:7px;inset-inline-start:5px}.orbit-center{inset:29%}.center-icon{font-size:23px;margin-bottom:2px}.center-ar{font-size:15px}.center-en{font-size:7px;letter-spacing:1px}.stage-rail{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:20px auto;max-width:420px}.rail-button{border:1px solid #294e74;background:#0d213f;color:#d9f4ff;border-radius:10px;min-height:49px;padding:8px;text-align:start;font-size:10px}.rail-button span{color:#50d9fa;margin-inline-end:7px;font-weight:800}.stage-hero-glyph{font-size:43px}.stage-hero h1{font-size:28px}.stage-hero p{font-size:11px}.questions-panel,.recommendation-panel{padding:19px}.options{grid-template-columns:1fr 1fr}.option{padding:10px;font-size:11px}footer{padding:20px;display:block}footer span{display:block}.embedding-stage iframe{height:1760px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 
-/* KhamisRagTools: a quieter palette and clearer controls. */
+/* Khamis.AI: a quieter palette and clearer controls. */
 :root{--bg:#0b1727;--surface:#102235;--surface2:#14283d;--line:#2b4b5e;--text:#f1f8f8;--muted:#a9bdc9;--cyan:#68dcc9;--blue:#68bce5;--violet:#98ace6;--pink:#98ace6;--mint:#68dcc9;--orange:#e5bd8c}
 body{background:radial-gradient(circle at 50% 37%,#153149 0,#0d2033 36%,#0b1727 76%)}
 .ambient{opacity:.11}.ambient-one{background:#3b91b5}.ambient-two{background:#318b7f}

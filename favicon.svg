@@ -1,11 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KhamisRagTools logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Khamis.AI logo">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#173b4c"/><stop offset="1" stop-color="#102235"/></linearGradient>
-    <linearGradient id="line" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#67e6cb"/><stop offset="1" stop-color="#55b8ec"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#173f77"/><stop offset="1" stop-color="#092344"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#75e2ea"/><stop offset="1" stop-color="#62a9f4"/></linearGradient>
   </defs>
-  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bg)" stroke="#4cb7bc" stroke-width="2"/>
-  <path d="M18 15v34M20 32 42 16M20 32l22 16" fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="43" cy="15" r="5" fill="#69e4c9"/>
-  <circle cx="43" cy="49" r="5" fill="#56bfe7"/>
-  <circle cx="20" cy="32" r="4" fill="#e0fff6"/>
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="url(#bg)" stroke="#86cce7" stroke-width="1.5"/>
+  <path d="M19 14v36M21 32 43 15M21 32l22 17" fill="none" stroke="url(#line)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M45 15 52 11M45 49l7 4" fill="none" stroke="#6ab8ec" stroke-width="1.8" stroke-linecap="round" opacity=".85"/>
+  <circle cx="44" cy="15" r="5" fill="#8de8ed"/>
+  <circle cx="44" cy="49" r="5" fill="#e9b750"/>
+  <circle cx="20" cy="32" r="4" fill="#eafaff"/>
+  <circle cx="53" cy="10" r="2.5" fill="#e9b750"/>
+  <circle cx="53" cy="54" r="2.5" fill="#8de8ed"/>
 </svg>
