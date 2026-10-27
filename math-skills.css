@@ -40,5 +40,5 @@ html.theme-light .math-board{border-color:#6f94ad}
 @media(max-width:550px){.math-skills-view{padding:12px 8px 35px}.math-board{padding:13px 10px 24px;border-radius:14px;background-size:28px 28px}.math-banner{padding:12px 9px}.math-title{font-size:clamp(24px,7vw,34px)}.math-subtitle{font-size:16px}.math-hint{font-size:11px;margin:14px 5px}.math-track{grid-template-columns:repeat(2,minmax(0,1fr))}.math-track:before,.math-track:after,.math-topic:before{display:none}.math-topic{min-height:48px;padding:8px;font-size:12px}.math-row{padding-bottom:17px}.site-nav{overflow-x:auto;justify-content:flex-start;scrollbar-width:none}.site-nav::-webkit-scrollbar{display:none}.nav-tab{flex:none}}
 @media(prefers-reduced-motion:reduce){.math-row,.math-topic,.math-category:before,.math-track:before,.math-spoke-flow,.math-spoke-dot,.math-hub{animation:none!important}.math-track:after{display:none!important}}
 /* A clean Khamis.AI wordmark shared across the learning areas. */
-.brand-name{font-weight:900;letter-spacing:-.04em}.brand-accent{color:#63d7ec}.brand-mark img{filter:drop-shadow(0 0 7px #5cdaed55)}
-html.theme-light .brand-accent{color:#1474a0}
+.brand-name{font-weight:900;letter-spacing:-.04em}.brand-accent{color:#f1c56e}.brand-mark img{filter:drop-shadow(0 0 8px #6be0d044)}
+html.theme-light .brand-accent{color:#9a681e}

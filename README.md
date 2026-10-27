@@ -25,4 +25,4 @@ A bilingual Arabic/English visual AI learning website. It combines a mathematics
 
 Recommendations are transparent starting points, not benchmark results. Review each linked tool's current documentation, dependencies, and data handling, then test on your own corpus. The site does not run models, transmit project text, or ask for API keys. Generated examples may require installing the libraries described in their official documentation. The optional Google Fonts request can fall back to system fonts offline.
 
-The site is published at https://khamisembed.vercel.app/ from the private GitHub repository MohammedKhames/KhamisEmbed.
+The site is published at https://khamisembed.vercel.app/ from the private GitHub repository MohammedKhames/Khamis.ai.

@@ -1,6 +1,6 @@
 /* Khamis.AI identity inside the preserved embedding advisor. */
-.brand{font-size:20px;white-space:nowrap}.brand span:last-child{color:#78dfcd}
-.logo{width:39px;height:39px;background:transparent url('logo.svg') center/contain no-repeat;box-shadow:none}.logo svg{display:none}
+.brand{font-size:20px;white-space:nowrap}.brand span:last-child{color:#f1c56e}
+.logo{width:39px;height:39px;background:transparent url('logo.svg?v=brand-2') center/contain no-repeat;box-shadow:none}.logo svg{display:none}
 .hero .eyebrow{color:#89e3d3}.status:before{background:#69d9c7}
 .journey-icon{background:#194c53!important;color:#8ee7d4!important}
 .model .badge,.model[data-model="bge"] .badge{background:#174b54!important;color:#9be9d9!important}
