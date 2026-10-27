@@ -1,29 +1,40 @@
-.ecosystems-view{padding:36px clamp(14px,3vw,44px) 64px;max-width:1960px;margin:0 auto;color:#eef6f5}
-.eco-hero{max-width:980px;margin:0 auto 28px;text-align:center}
-.eco-eyebrow{display:inline-block;color:#f0c773;font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
-.eco-hero h1{font-size:clamp(29px,4.1vw,58px);line-height:1.14;letter-spacing:-.035em;margin:12px 0 10px}.eco-hero h1 span{color:#78bce7;white-space:nowrap}
-.eco-hero p{margin:0 auto;max-width:760px;color:#b2c9d2;font-size:13px;line-height:1.85}
-.eco-map-head{display:flex;align-items:center;justify-content:space-between;gap:18px;max-width:1500px;margin:0 auto 10px;color:#a9c6ce;font-size:11px}.eco-legend{white-space:nowrap;color:#f0cb84;font-weight:800}.eco-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#e4b956;box-shadow:0 0 12px #e4b956;margin-inline-end:7px}
-.eco-scroll{max-width:1530px;margin:0 auto;overflow-x:auto;overflow-y:hidden;border:1px solid #35586b;border-radius:22px;background:radial-gradient(ellipse at 50% 92%,#163a4d 0,#102638 42%,#0b1b2b 85%);box-shadow:0 22px 55px #0004, inset 0 0 80px #37738211;direction:ltr;scrollbar-color:#7eaaac #0c2332}
-.eco-scroll:focus-visible{outline:2px solid #f2cb76;outline-offset:3px}
-.eco-map{position:relative;width:1510px;height:1250px;padding:22px 24px;box-sizing:border-box;isolation:isolate}
-.eco-map:before{content:'';position:absolute;left:50%;top:815px;width:700px;height:340px;transform:translateX(-50%);background:radial-gradient(ellipse,#34889520,transparent 68%);pointer-events:none}
+.ecosystems-view{max-width:1960px;margin:0 auto;padding:34px clamp(12px,2vw,36px) 64px;background:#fbfaf6;color:#17252e}
+.eco-hero{max-width:980px;margin:0 auto 24px;text-align:center}
+.eco-eyebrow{display:inline-block;color:#6b46ae;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.eco-hero h1{font-size:clamp(29px,4vw,56px);line-height:1.14;letter-spacing:-.035em;margin:12px 0 10px;color:#14212d}.eco-hero h1 span{color:#2475cf;white-space:nowrap}
+.eco-hero p{margin:0 auto;max-width:760px;color:#50616b;font-size:13px;line-height:1.8}
+.eco-map-head{display:flex;align-items:center;justify-content:space-between;gap:15px;max-width:1530px;margin:0 auto 10px;color:#54636d;font-size:11px}.eco-legend{white-space:nowrap;color:#196b38;font-weight:800}.eco-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#21a750;margin-inline-end:7px}
+.eco-scroll{max-width:1530px;margin:0 auto;overflow:visible;border:1px solid #d9e0de;border-radius:20px;background:#fff;box-shadow:0 16px 40px #20334b16;direction:ltr}
+.eco-scroll:focus-visible{outline:2px solid #3183cf;outline-offset:3px}
+.eco-map{position:relative;width:100%;height:1250px;padding:22px clamp(9px,1.3vw,22px);box-sizing:border-box;isolation:isolate}
 .eco-links{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:visible;pointer-events:none}
-.eco-spine{fill:none;stroke-width:2;stroke-opacity:.35;stroke-dasharray:4 7}.eco-chain{fill:none;stroke-width:3;stroke-opacity:.68;stroke-dasharray:9 8;animation:ecoFlow 8s linear infinite;filter:drop-shadow(0 0 4px currentColor)}
-.eco-columns{position:relative;z-index:1;display:grid;grid-template-columns:repeat(11,120px);gap:13px;width:max-content;margin:auto}
-.eco-column{width:120px;position:relative;text-align:center;transform:translateY(var(--eco-drop))}.eco-stack{height:755px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px}
-.eco-card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:100%;height:73px;box-sizing:border-box;padding:6px 8px;text-decoration:none;border:1px solid color-mix(in srgb,var(--eco-color) 65%,#7495a2);border-radius:11px;background:linear-gradient(155deg,#19394b,#112b3d 78%);color:#f0f7f3;box-shadow:0 4px 14px #0003,inset 0 1px 0 #ffffff10;transition:transform .22s,border-color .22s,box-shadow .22s,background .22s;animation:ecoRise .65s both;animation-delay:calc(var(--col)*35ms + var(--item)*45ms)}
-.eco-card:hover,.eco-card:focus-visible{transform:translateY(-5px) scale(1.04);border-color:#f0cf82;box-shadow:0 10px 26px #0006,0 0 17px color-mix(in srgb,var(--eco-color) 52%,transparent);background:linear-gradient(155deg,#244b5a,#17384a);z-index:4}.eco-card:focus-visible{outline:2px solid #f4d38b;outline-offset:2px}
-.eco-mark{display:grid;place-items:center;flex:none;width:29px;height:29px;border-radius:9px;background:color-mix(in srgb,var(--eco-color) 50%,#152c41);border:1px solid color-mix(in srgb,var(--eco-color) 75%,white);font:900 11px/1 Inter,Arial,sans-serif;letter-spacing:-.05em;color:white;box-shadow:0 2px 11px color-mix(in srgb,var(--eco-color) 35%,transparent)}
-.eco-name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font:800 10px/1.12 Inter,'IBM Plex Sans Arabic',Arial,sans-serif;letter-spacing:-.012em;text-wrap:balance;direction:ltr}.eco-external{position:absolute;top:5px;right:6px;font-size:10px;color:#a7c4c7;opacity:0;transition:opacity .2s}.eco-card:hover .eco-external,.eco-card:focus-visible .eco-external{opacity:1}
-.eco-bubble{position:relative;display:grid;place-items:center;width:112px;height:112px;margin:22px auto 0;padding:12px;border:2px solid color-mix(in srgb,var(--eco-color) 80%,white);border-radius:50%;background:radial-gradient(circle at 30% 20%,color-mix(in srgb,var(--eco-color) 70%,#345a65),color-mix(in srgb,var(--eco-color) 64%,#132e43) 76%);box-shadow:0 10px 28px #0005,0 0 28px color-mix(in srgb,var(--eco-color) 30%,transparent);color:#fff;font:900 15px/1.12 Inter,Arial,sans-serif;text-align:center;cursor:pointer;animation:ecoFloat 6s ease-in-out infinite;animation-delay:calc(var(--col)*-350ms)}
-.eco-bubble:hover,.eco-bubble:focus-visible,.eco-focused .eco-bubble{outline:2px solid #f5d995;outline-offset:3px;box-shadow:0 10px 30px #0007,0 0 35px color-mix(in srgb,var(--eco-color) 75%,transparent)}
-.eco-bubble span{max-width:90px;overflow-wrap:anywhere}
-.eco-bubble[data-eco-bubble="observability"]{font-size:12px}.eco-bubble[data-eco-bubble="vector-db"]{font-size:13px}
-.eco-hub{position:absolute;z-index:2;left:50%;top:1005px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;width:152px;height:152px;border:2px solid #d9ad69;border-radius:36px;background:radial-gradient(circle at 50% 25%,#1e4862,#10263d 78%);box-shadow:0 0 38px #d3a75855,0 17px 35px #0006}.eco-hub svg{width:110px;height:110px;filter:drop-shadow(0 0 10px #d39cca77)}.eco-hub span{font:900 10px Inter,'IBM Plex Sans Arabic',sans-serif;color:#f4d797;letter-spacing:.08em}
-html.theme-light .ecosystems-view{color:#1c3640}html.theme-light .eco-hero p,.theme-light .eco-map-head{color:#526e76}html.theme-light .eco-scroll{background:radial-gradient(ellipse at 50% 90%,#e6f4ef 0,#f2f4ed 48%,#f8f4e9 100%);border-color:#9dbcb7;box-shadow:0 16px 40px #526b5c29}html.theme-light .eco-card{background:linear-gradient(150deg,#fffdf5,#eef5f0);color:#233b44;box-shadow:0 3px 12px #4562501b}html.theme-light .eco-card:hover,.theme-light .eco-card:focus-visible{background:#fff}html.theme-light .eco-external{color:#42636c}html.theme-light .eco-hub{background:radial-gradient(circle,#f8e8bf,#e2ebdf);border-color:#c39a4f}html.theme-light .eco-hub span{color:#795824}html.theme-light .eco-hero h1 span{color:#3477a8}
-@keyframes ecoRise{from{opacity:0;transform:translateY(16px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes ecoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.eco-spine{fill:none;stroke-width:1.7;stroke-opacity:.56}.eco-chain{fill:none;stroke-width:3;stroke-opacity:.72;stroke-dasharray:9 8;animation:ecoFlow 8s linear infinite}
+.eco-columns{position:relative;z-index:1;display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:clamp(4px,.7vw,12px);width:100%;margin:0 auto}
+.eco-column{min-width:0;position:relative;text-align:center;transform:translateY(var(--eco-drop))}.eco-stack{height:755px;display:flex;flex-direction:column;justify-content:flex-start;gap:7px}
+.eco-card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:100%;height:72px;box-sizing:border-box;padding:5px 3px;text-decoration:none;border:1.5px solid var(--eco-color);border-radius:10px;background:#fff;color:#182630;box-shadow:0 3px 9px #1e304112;transition:transform .22s,box-shadow .22s,background .22s;animation:ecoRise .65s both;animation-delay:calc(var(--col)*35ms + var(--item)*45ms)}
+.eco-card:hover,.eco-card:focus-visible{transform:translateY(-4px) scale(1.035);box-shadow:0 9px 22px #1d33422b;background:#fdfefc;z-index:4}.eco-card:focus-visible{outline:2px solid #2e7fc2;outline-offset:2px}
+.eco-logo{display:grid;place-items:center;flex:none;width:34px;height:34px}.eco-logo img{display:block;width:100%;height:100%;object-fit:contain}
+.eco-name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;font:800 clamp(8px,.68vw,10px)/1.08 Inter,'IBM Plex Sans Arabic',Arial,sans-serif;letter-spacing:-.015em;text-wrap:balance;direction:ltr}
+.eco-external{position:absolute;top:3px;right:5px;font-size:10px;color:#477287;opacity:0;transition:opacity .2s}.eco-card:hover .eco-external,.eco-card:focus-visible .eco-external{opacity:1}
+.eco-bubble{position:relative;display:grid;place-items:center;width:clamp(68px,7.1vw,112px);height:clamp(68px,7.1vw,112px);margin:22px auto 0;padding:5px;border:2px solid var(--eco-color);border-radius:50%;background:var(--eco-color);box-shadow:0 6px 16px #23344c20;color:#fff;font:900 clamp(8px,.85vw,13px)/1.1 Inter,Arial,sans-serif;text-align:center;cursor:pointer;animation:ecoFloat 6s ease-in-out infinite;animation-delay:calc(var(--col)*-350ms)}
+.eco-bubble:hover,.eco-bubble:focus-visible,.eco-focused .eco-bubble{outline:2px solid #142737;outline-offset:3px;box-shadow:0 7px 20px #23344c40}
+.eco-bubble span{max-width:100%;overflow-wrap:normal}
+.eco-hub{position:absolute;z-index:2;left:50%;top:1005px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;width:152px;height:152px;border:2px solid #306bb3;border-radius:36px;background:#fff;box-shadow:0 12px 28px #1b4c9133}.eco-hub svg{width:110px;height:110px}.eco-hub span{font:900 10px Inter,'IBM Plex Sans Arabic',sans-serif;color:#234f92;letter-spacing:.08em}
+html.theme-light .ecosystems-view{background:#fbfaf6;color:#17252e}html.theme-light .eco-scroll{background:#fff}html.theme-light .eco-card{background:#fff;color:#182630}
+@keyframes ecoRise{from{opacity:0;transform:translateY(14px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes ecoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 @keyframes ecoFlow{to{stroke-dashoffset:-136}}
-@media(max-width:720px){.ecosystems-view{padding:24px 12px 42px}.eco-hero h1{font-size:clamp(27px,7vw,38px)}.eco-hero h1 span{display:block;margin-top:5px}.eco-hero p{font-size:12px}.eco-map-head{font-size:10px}.eco-scroll{border-radius:15px}.eco-hub{top:1005px}}
+@media(max-width:1050px){
+ .eco-scroll{border:0;background:transparent;box-shadow:none}
+ .eco-map{height:auto;padding:0}
+ .eco-columns{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+ .eco-column{display:flex;flex-direction:column;gap:8px;transform:none;min-width:0;padding:8px;border:1px solid #d9e0de;border-radius:14px;background:#fff;box-shadow:0 4px 12px #25394a12}
+ .eco-stack{height:auto;order:2;gap:6px}
+ .eco-bubble{order:1;width:100%;height:36px;margin:0;border-radius:8px;font-size:12px;animation:none}
+ .eco-card{height:58px;flex-direction:row;justify-content:flex-start;text-align:left;padding:5px;gap:6px}
+ .eco-logo{width:29px;height:29px}.eco-name{font-size:10px}
+ .eco-hub,.eco-links{display:none}
+}
+@media(max-width:690px){.ecosystems-view{padding:23px 12px 40px}.eco-hero h1{font-size:clamp(27px,7vw,37px)}.eco-hero h1 span{display:block;margin-top:4px}.eco-map-head{font-size:10px}.eco-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.eco-card{height:60px}}
+@media(max-width:350px){.eco-columns{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.eco-card,.eco-bubble,.eco-chain{animation:none!important;transition:none!important}}
