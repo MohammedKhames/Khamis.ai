@@ -18,19 +18,21 @@
   <link rel="stylesheet" href="ecosystems.css?v=ecosystems-8">
   <link rel="stylesheet" href="math-skills.css?v=math-5">
   <link rel="stylesheet" href="complexity.css?v=complexity-1">
-  <link rel="stylesheet" href="home-map.css?v=map-1">
+  <link rel="stylesheet" href="home-map.css?v=map-2">
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="site-header">
     <button class="brand" id="homeBrand" type="button" aria-label="Khamis.AI home"><span class="brand-mark"><img src="logo.svg?v=brand-3" alt=""></span><span class="brand-name">Khamis<span class="brand-accent">.AI</span></span></button>
-    <div class="header-actions"><nav class="site-nav" aria-label="Main navigation"><button id="navStages" class="nav-tab active" type="button" aria-current="page">المراحل</button><button id="navSimulation" class="nav-tab" type="button">RAG Simulation</button><button id="navEcosystems" class="nav-tab" type="button">Ecosystems</button><button id="navMath" class="nav-tab" type="button">Math Skills</button><button id="navComplexity" class="nav-tab" type="button">Complexity</button></nav><span class="header-kicker" id="headerKicker">مسارك لفهم الذكاء الاصطناعي</span><button id="themeToggle" class="theme-toggle" type="button" aria-pressed="true">☀ الوضع الفاتح</button><button id="language" class="language" type="button" aria-label="Switch language">EN <span>↗</span></button></div>
+    <div class="header-actions"><nav class="site-nav" aria-label="Main navigation"><button id="navStages" class="nav-tab" type="button">المراحل</button><button id="navSimulation" class="nav-tab" type="button">RAG Simulation</button><button id="navEcosystems" class="nav-tab" type="button">Ecosystems</button><button id="navMath" class="nav-tab" type="button">Math Skills</button><button id="navComplexity" class="nav-tab" type="button">Complexity</button></nav><span class="header-kicker" id="headerKicker">مسارك لفهم الذكاء الاصطناعي</span><button id="themeToggle" class="theme-toggle" type="button" aria-pressed="true">☀ الوضع الفاتح</button><button id="language" class="language" type="button" aria-label="Switch language">EN <span>↗</span></button></div>
   </header>
   <main>
-    <section id="home" class="home-view">
-      <div class="hero-copy"><div class="eyebrow"><span class="signal"></span><span id="eyebrow">خريطة التعلّم</span></div><h1 id="heroTitle">رحلتك في <em>الذكاء الاصطناعي</em></h1><p id="heroIntro">اختر خطًا أو محطة للانتقال مباشرة إلى ما تريد تعلّمه.</p></div>
-      <section class="roadmap-board" aria-label="AI learning map"><div class="roadmap-heading"><div><span class="roadmap-kicker" id="mapKicker">مسار تفاعلي</span><h2 id="mapTitle">الخريطة</h2><p id="mapIntro">كل خط مجال، وكل محطة خطوة تستطيع استكشافها.</p></div><span class="roadmap-hint" id="mapHint">اضغط على أي محطة للبدء ↗</span></div><div id="routeMap" class="route-map"></div></section>
-      <div class="home-bottom"><span id="homeBottom">من الأساسيات إلى بناء أنظمة الذكاء الاصطناعي</span><span class="bottom-line"></span><button type="button" id="motionToggle" class="motion-toggle" aria-pressed="true">⏸ إيقاف الحركة</button></div>
+    <section id="home" class="map-home" aria-label="AI route map"><div class="map-scroll"><div id="routeMap" class="route-map"></div></div></section>
+    <section id="stagesHome" class="home-view" hidden>
+      <div class="hero-copy"><div class="eyebrow"><span class="signal"></span><span id="eyebrow">دليل RAG التفاعلي</span></div><h1 id="heroTitle">ابنِ نظام <em>RAG</em> خطوة بخطوة</h1><p id="heroIntro">اختر مرحلة من الدائرة، أجب عن أسئلة بسيطة، واعرف الأداة المناسبة لك.</p><button id="startButton" class="start-button" type="button">ابدأ من المرحلة الأولى <span>←</span></button></div>
+      <div class="orbit-shell"><div class="orbit" id="orbit"><div class="orbit-track orbit-track-outer"></div><div class="orbit-track orbit-track-inner"></div><div class="orbit-dashes"></div><div class="orbit-center"><div class="center-icon">✦</div><div class="center-ar" id="centerTitle">مراحل RAG</div><div class="center-caption" id="centerCaption">اضغط على مرحلة للاستكشاف</div></div><div id="orbitNodes"></div></div></div>
+      <div class="stage-rail" id="stageRail"></div>
+      <div class="home-bottom"><span id="homeBottom">من المصدر إلى التقييم، خطوة بخطوة</span><span class="bottom-line"></span><button type="button" id="motionToggle" class="motion-toggle" aria-pressed="true">⏸ إيقاف الحركة</button></div>
     </section>
     <section id="simulationView" class="sim-view" hidden>
       <div class="sim-engine"><div class="sim-engine-head"><div><span class="sim-engine-kicker" id="simEngineKicker">مخطط RAG التفاعلي ثلاثي الأبعاد</span><h2 id="simEngineTitle">مراحل RAG العشر</h2></div><span class="sim-engine-counter" id="simEngineCounter">01 / 10</span></div><div class="rag-diagram-caption" id="ragDiagramCaption"></div><div class="sim-viewport" id="simViewport" tabindex="0" aria-label="RAG 3D simulation"><div class="sim-space" id="simSpace"></div><span class="sim-viewport-hint" id="simViewportHint">اسحب لتدوير المخطط</span></div></div>
@@ -59,8 +61,8 @@
   <script src="math-skills-data.js?v=math-1"></script>
   <script src="math-skills.js?v=math-4"></script>
   <script src="complexity.js?v=complexity-1"></script>
-  <script src="home-map.js?v=map-1"></script>
-  <script src="explorer.js?v=map-1"></script>
+  <script src="home-map.js?v=map-2"></script>
+  <script src="explorer.js?v=map-2"></script>
   <script type="module" src="stage-3d.js"></script>
 </body>
 </html>
