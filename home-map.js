@@ -1,81 +1,40 @@
-// Five highlighted metro stations open the site's existing pages.
+// The same eleven learning phases are rendered in Arabic and English.
 (() => {
-  const copy = {
-    en: {
-      title:'The route',intro:'Each line is a layer. Choose a highlighted station to explore its page.',
-      lines:[
-        {title:'Foundations',detail:'Start with the essentials',stops:['Python','SQL','Git','FastAPI & REST','LLM intuition']},
-        {title:'LLM Engineering',detail:'Build with language models',stops:['Prompting','Caching & cost','Context engineering','MCP & APIs']},
-        {title:'Agents',detail:'Connect tools and workflows',stops:['Agent design','Memory','Frameworks','Safety & reliability','Voice & browser']},
-        {title:'Evaluation',detail:'Measure what works',stops:['Eval basics','Golden datasets','LLM-as-judge','RAG evals','Observability & CI']},
-        {title:'Production (LLMOps)',detail:'Ship and improve',stops:['Fine-tuning','Inference','Cost & latency','Security & red teaming','Shipping & operating']}
-      ],
-      links:{math:'Math Skills',complexity:'Complexity',stages:'RAG Stages',simulation:'RAG Simulation',ecosystems:'Ecosystems'},
-      build:['LLM proxy API','Docs Q&A with citations','Research agent with a sandbox','Evaluate your system','Ship it'],
-      legend:'Highlighted stations open the existing pages',start:'Start'
-    },
-    ar: {
-      title:'خريطة الرحلة',intro:'كل خط مستوى في الرحلة. اضغط على المحطات المميزة لفتح صفحات الموقع.',
-      lines:[
-        {title:'الأساسيات',detail:'ابدأ بالمفاهيم الضرورية',stops:['Python','SQL','Git','FastAPI و REST','فهم LLM']},
-        {title:'هندسة LLM',detail:'ابنِ باستخدام النماذج اللغوية',stops:['البرومبت','التكلفة والتخزين','هندسة السياق','MCP و APIs']},
-        {title:'الوكلاء',detail:'اربط الأدوات وسير العمل',stops:['تصميم الوكيل','الذاكرة','أطر العمل','الأمان والموثوقية','الصوت والمتصفح']},
-        {title:'التقييم',detail:'قِس ما ينجح',stops:['أساسيات التقييم','مجموعات مرجعية','تقييم LLM','تقييم RAG','المراقبة و CI']},
-        {title:'الإنتاج (LLMOps)',detail:'انشر وحسّن',stops:['الضبط الدقيق','الاستدلال','التكلفة والسرعة','الأمان والاختبار','النشر والتشغيل']}
-      ],
-      links:{math:'Math Skills',complexity:'Complexity',stages:'RAG Stages',simulation:'RAG Simulation',ecosystems:'Ecosystems'},
-      build:['واجهة LLM','سؤال وجواب من المستندات','وكيل بحث','تقييم النظام','إطلاق المشروع'],
-      legend:'المحطات المميزة تفتح صفحات الموقع الحالية',start:'ابدأ'
-    }
+  const phases = [
+    {ar:['فهم المجال وتحديد الهدف','ابدأ بالمشكلة التي تريد حلها','AI / ML / DL|Generative AI|حالات الاستخدام|صياغة المشكلة|معيار النجاح|حدود AI','لا تحتاج مكتبة بعد؛ ابدأ بفهم المفاهيم.'],en:['Understand AI and your goal','Start with the problem you want to solve','AI / ML / DL|Generative AI|Use cases|Problem framing|Success metrics|AI limitations','No library yet; focus on the concepts.'],tools:[],color:'#3b87ce'},
+    {ar:['البرمجة وعلوم الحاسوب','Git محطة مستقلة','Python|Terminal|Git|SQL|APIs|Complexity','ادرس المكتبات والأدوات الأساسية.'],en:['Programming and computer science','Git has its own station','Python|Terminal|Git|SQL|APIs|Complexity','Study the core libraries and tools.'],tools:['Python stdlib','sqlite3','requests'],links:{5:'complexity'},color:'#288cb0'},
+    {ar:['رياضيات الذكاء الاصطناعي','افهم الفكرة وطبّقها','Math Skills|الجبر الخطي|الاحتمالات|الإحصاء|التفاضل|التحسين','طبّق المفاهيم بهذه المكتبات.'],en:['Math for AI','Understand and apply the ideas','Math Skills|Linear algebra|Probability|Statistics|Calculus|Optimization','Apply the concepts with these libraries.'],tools:['NumPy','SciPy','Matplotlib','SymPy'],links:{0:'math'},color:'#725bc0'},
+    {ar:['البيانات وهندستها','من المصدر إلى بيانات صالحة للتعلم','المصادر|Ingestion|EDA|الجودة والتنظيف|Features وLabels|Train / Validation / Test','ابدأ بـ pandas، ثم أضف غيرها عند الحاجة.'],en:['Data and data engineering','Turn raw sources into usable data','Sources|Ingestion|EDA|Quality and cleaning|Features and labels|Train / validation / test','Start with pandas, then add others when needed.'],tools:['pandas','PyArrow','Seaborn','Polars'],color:'#d47756'},
+    {ar:['Machine Learning','نماذج تتعلم من البيانات','Supervised ML|Classification|Unsupervised ML|التعميم|التقييم|Pipelines','المكتبة الأساسية scikit-learn؛ تعلّم XGBoost لاحقًا.'],en:['Machine Learning','Models that learn from data','Supervised ML|Classification|Unsupervised ML|Generalization|Evaluation|Pipelines','Start with scikit-learn; learn XGBoost later.'],tools:['scikit-learn','XGBoost'],color:'#2c9b74'},
+    {ar:['Deep Learning','كيف تتدرب الشبكات العصبية؟','Tensors|الشبكات العصبية|Backpropagation|Optimization|Regularization|تجارب التدريب','المكتبة الأساسية PyTorch؛ استخدم TorchMetrics للقياس.'],en:['Deep Learning','How neural networks train','Tensors|Neural networks|Backpropagation|Optimization|Regularization|Training experiments','Start with PyTorch; use TorchMetrics for metrics.'],tools:['PyTorch','TorchMetrics'],color:'#c2902e'},
+    {ar:['معماريات النماذج','افهم البنية قبل اختيار التخصص','CNN|Sequence Models|Attention|Transformers|Diffusion|Multimodal','اختر المكتبة حسب المعمارية التي تدرسها.'],en:['Model architectures','Learn the structure before specializing','CNN|Sequence models|Attention|Transformers|Diffusion|Multimodal','Choose libraries for the architecture you study.'],tools:['torchvision','Transformers','Diffusers','PyTorch Geometric'],color:'#a86ca2'},
+    {ar:['LLMs والذكاء التوليدي','من آلية النموذج إلى استخدامه','Tokenization|Pretraining|Embeddings|Prompting|Fine-tuning|Inference','ابدأ بمكتبات Hugging Face ثم توسع حسب الحاجة.'],en:['LLMs and generative AI','From model mechanics to applications','Tokenization|Pretraining|Embeddings|Prompting|Fine-tuning|Inference','Start with Hugging Face libraries and expand as needed.'],tools:['Transformers','Tokenizers','Datasets','Sentence Transformers','PEFT'],extra:'ecosystems',color:'#566fce'},
+    {ar:['اختر مسار تطبيق أو تخصص','ابدأ بفرع واحد ثم توسع','RAG|AI Agents|Computer Vision|Audio وSpeech|Recommendations|Time Series|RL وRobotics|Graph Learning','ادرس مكتبات الفرع الذي تختاره فقط.'],en:['Choose an application path','Start with one branch, then expand','RAG|AI Agents|Computer Vision|Audio and speech|Recommendations|Time series|RL and robotics|Graph learning','Study the libraries for your chosen branch only.'],branches:[['LangChain','LlamaIndex'],['LangGraph','smolagents'],['torchvision','OpenCV'],['torchaudio','librosa'],['TorchRec','scikit-learn'],['statsmodels'],['Gymnasium','Stable-Baselines3'],['PyTorch Geometric','NetworkX']],links:{0:'rag'},tools:[],color:'#0f9d9d'},
+    {ar:['التقييم والاستخدام المسؤول','اختبر الجودة والسلامة لكل تخصص','Test Sets|Task Metrics|GenAI Evals|تقييم بشري|Safety|Privacy وFairness','اختر مقاييس وأدوات التقييم حسب المهمة.'],en:['Evaluation and responsible AI','Test quality and safety for your domain','Test sets|Task metrics|GenAI evals|Human evaluation|Safety|Privacy and fairness','Choose evaluation tools for the task.'],tools:['scikit-learn.metrics','Ragas','Fairlearn'],color:'#c25968'},
+    {ar:['النشر وMLOps','شغّل النظام وراقبه وحسّنه','API Serving|Docker وCloud|CI/CD|Observability|Cost وLatency|Drift وRetraining','FastAPI وMLflow وEvidently مكتبات؛ Docker أداة تشغيل.'],en:['Deployment and MLOps','Run, monitor, and improve the system','API serving|Docker and cloud|CI/CD|Observability|Cost and latency|Drift and retraining','FastAPI, MLflow, and Evidently are libraries; Docker is a runtime tool.'],tools:['FastAPI','MLflow','Evidently','Docker'],color:'#607f43'}
+  ];
+  const labels={
+    ar:{title:'خريطة تعلّم الذكاء الاصطناعي',intro:'١١ مرحلة مترابطة، من الأساسيات حتى النشر. اضغط على محطة مميزة لفتح صفحتها.',tools:'المكتبات والأدوات',explore:'استكشف الأدوات',stages:'مراحل RAG',simulation:'محاكاة RAG',legend:'المحطات المميزة تفتح صفحات موجودة في الموقع'},
+    en:{title:'Your AI learning route',intro:'11 connected phases, from foundations to deployment. Select a highlighted station to open its page.',tools:'Libraries and tools',explore:'Explore tools',stages:'RAG Stages',simulation:'RAG Simulation',legend:'Highlighted stations open existing site pages'}
   };
-  const tracks=[
-    {color:'#347fce',y:190,headX:212,badgeX:167,buildX:1039,stops:[260,425,590,755,920]},
-    {color:'#ed7140',y:390,headX:812,badgeX:1003,buildX:96,stops:[920,755,590,425]},
-    {color:'#22ac7a',y:590,headX:205,badgeX:167,buildX:1039,stops:[260,425,590,755,920]},
-    {color:'#eeae18',y:790,headX:806,badgeX:1003,buildX:96,stops:[920,755,590,425,260]},
-    {color:'#7055cf',y:990,headX:213,badgeX:167,buildX:1039,stops:[260,425,590,755,920]}
-  ];
-  const links=[
-    {target:'math',x:260,y:190,color:'#347fce'},
-    {target:'complexity',x:425,y:190,color:'#347fce'},
-    {target:'stages',x:425,y:390,color:'#ed7140'},
-    {target:'simulation',x:260,y:390,color:'#ed7140'},
-    {target:'ecosystems',x:590,y:590,color:'#22ac7a'}
-  ];
-  const rails=[
-    'M86 190 H1039',
-    'M1039 190 Q1108 190 1108 244 V336 Q1108 390 1039 390 H96',
-    'M96 390 Q26 390 26 444 V536 Q26 590 96 590 H1039',
-    'M1039 590 Q1108 590 1108 644 V736 Q1108 790 1039 790 H96',
-    'M96 790 Q26 790 26 844 V936 Q26 990 96 990 H1054'
-  ];
-  const escape=value=>String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-  const linked=new Set(links.map(link=>`${link.x}:${link.y}`));
+  const esc=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   function render(language,actions){
-    const t=copy[language]||copy.en;
-    const svg=`<svg class="map-art" viewBox="0 0 1160 1110" role="img" aria-label="${escape(t.title)}" xmlns="http://www.w3.org/2000/svg">
-      <defs><pattern id="map-grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#dce4da" stroke-width=".55"/></pattern></defs>
-      <rect width="1160" height="1110" fill="#f5f6ef"/><rect width="1160" height="1110" fill="url(#map-grid)" opacity=".35"/>
-      <text class="map-title" x="52" y="74">${escape(t.title)}</text><text class="map-intro" x="53" y="105">${escape(t.intro)}</text>
-      ${rails.map((path,i)=>`<path class="map-rail" d="${path}" stroke="${tracks[i].color}"/><path class="map-rail-flow" d="${path}" stroke="${tracks[i].color}"/>`).join('')}
-      <path d="M53 172v37M53 190h33" stroke="#26303a" stroke-width="8" stroke-linecap="round"/><text class="map-end-label" x="50" y="239">${escape(t.start)}</text>
-      ${tracks.map((track,i)=>{
-        const line=t.lines[i],reversed=i%2===1,y=track.y;
-        return `<g class="map-line">
-          <circle class="map-layer-badge" cx="${track.badgeX}" cy="${y}" r="19" fill="${track.color}"/><text class="map-layer-number" x="${track.badgeX}" y="${y+6}">${i+1}</text>
-          <text class="map-line-title" x="${track.headX}" y="${y-37}" text-anchor="${reversed?'end':'start'}">${escape(line.title)}</text>
-          <text class="map-line-detail" x="${track.headX}" y="${y-17}" text-anchor="${reversed?'end':'start'}">${escape(line.detail)}</text>
-          ${track.stops.map((x,j)=>linked.has(`${x}:${y}`)?'':`<g><circle class="map-dot" cx="${x}" cy="${y}" r="6" stroke="${track.color}"/><text class="map-stop-label" transform="translate(${x+8} ${y+19}) rotate(46)">${escape(line.stops[j])}</text></g>`).join('')}
-          <circle class="map-terminal" cx="${track.buildX}" cy="${y}" r="11"/><circle cx="${track.buildX}" cy="${y}" r="4" fill="#26303a"/><text class="map-build" x="${track.buildX}" y="${y-28}" text-anchor="${reversed?'start':'end'}">${escape(t.build[i])}</text>
-        </g>`;
-      }).join('')}
-      <path d="M1054 990h42l-16-13m16 13-16 13" fill="none" stroke="#26303a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="54" cy="1060" r="8" fill="#fff" stroke="#26303a" stroke-width="3"/><text class="map-legend" x="73" y="1065">${escape(t.legend)}</text>
-    </svg>`;
-    const stations=links.map(link=>`<button class="map-link" type="button" data-map-page="${link.target}" style="--x:${link.x/1160*100}%;--y:${link.y/1110*100}%;--station-color:${link.color}" aria-label="${escape(t.links[link.target])}"><span class="map-link-dot"></span><span class="map-link-name">${escape(t.links[link.target])}</span></button>`).join('');
-    const root=document.getElementById('routeMap');
-    root.innerHTML=svg+stations;
-    root.querySelectorAll('[data-map-page]').forEach(button=>button.addEventListener('click',()=>actions[button.dataset.mapPage]()));
+    const lang=language==='ar'?'ar':'en',t=labels[lang],root=document.getElementById('routeMap');
+    if(!root)return;
+    root.setAttribute('dir',lang==='ar'?'rtl':'ltr');
+    root.innerHTML=`<div class="route-header"><span class="route-kicker">KHAMIS.AI / LEARNING ROUTE</span><h1>${t.title}</h1><p>${t.intro}</p></div><div class="route-phases">${phases.map((phase,index)=>{
+      const [title,detail,stopText,note]=phase[lang],stops=stopText.split('|');
+      const stations=stops.map((stop,i)=>{
+        const link=phase.links?.[i],content=`<span class="route-station-dot"></span><span class="route-station-name">${esc(stop)}</span>`;
+        if(link==='rag')return `<div class="route-station route-station-linked"><span class="route-station-main">${content}</span><span class="route-station-actions"><button type="button" data-map-page="stages">${t.stages}</button><button type="button" data-map-page="simulation">${t.simulation}</button></span></div>`;
+        return link?`<button class="route-station route-station-linked" type="button" data-map-page="${link}" aria-label="${esc(stop)}">${content}<span class="route-open" aria-hidden="true">↗</span></button>`:`<div class="route-station">${content}</div>`;
+      }).join('');
+      const branches=phase.branches?`<div class="route-branches">${phase.branches.map((items,i)=>`<div><span>${esc(stops[i])}</span><small>${items.map(esc).join(' · ')}</small></div>`).join('')}</div>`:'';
+      const tools=phase.tools.length?`<div class="route-tools"><strong>${t.tools}</strong><span class="route-tool-list">${phase.tools.map(tool=>`<span class="route-tool">${esc(tool)}</span>`).join('')}</span></div>`:'';
+      const extra=phase.extra?`<button class="route-extra" type="button" data-map-page="${phase.extra}">${t.explore} · Ecosystems ↗</button>`:'';
+      return `<section class="route-phase" style="--phase-color:${phase.color};--phase-index:${index}" aria-label="${esc(title)}"><div class="route-phase-heading"><span class="route-number">${String(index+1).padStart(2,'0')}</span><div><h2>${esc(title)}</h2><p>${esc(detail)}</p></div></div><div class="route-stations ${phase.branches?'route-stations-branch':''}">${stations}</div>${branches}<div class="route-phase-foot">${tools}<p>${esc(note)}</p>${extra}</div></section>`;
+    }).join('')}</div><p class="route-legend"><span></span>${t.legend}</p>`;
+    root.querySelectorAll('[data-map-page]').forEach(button=>button.addEventListener('click',()=>actions[button.dataset.mapPage]?.()));
   }
   window.KhamisHomeMap={render};
 })();
