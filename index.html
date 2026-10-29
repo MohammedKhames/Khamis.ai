@@ -18,13 +18,14 @@
   <link rel="stylesheet" href="ecosystems.css?v=ecosystems-8">
   <link rel="stylesheet" href="math-skills.css?v=math-5">
   <link rel="stylesheet" href="complexity.css?v=complexity-1">
-  <link rel="stylesheet" href="home-map.css?v=map-7">
+  <link rel="stylesheet" href="home-map.css?v=map-8">
+  <link rel="stylesheet" href="resource-hub.css?v=resources-1">
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="site-header">
     <button class="brand" id="homeBrand" type="button" aria-label="Khamis.AI home"><span class="brand-mark"><img src="logo.svg?v=brand-3" alt=""></span><span class="brand-name">Khamis<span class="brand-accent">.AI</span></span></button>
-    <div class="header-actions"><nav class="site-nav" aria-label="Main navigation"><button id="navStages" class="nav-tab" type="button">Tool Recommender</button><button id="navEcosystems" class="nav-tab" type="button">Ecosystems</button></nav><span class="header-kicker" id="headerKicker">مسارك لفهم الذكاء الاصطناعي</span><button id="themeToggle" class="theme-toggle" type="button" aria-pressed="true">☀ الوضع الفاتح</button><button id="language" class="language" type="button" aria-label="Switch language">EN <span>↗</span></button></div>
+    <div class="header-actions"><nav class="site-nav" aria-label="Main navigation"><button id="navStages" class="nav-tab" type="button">Tool Recommender</button><button id="navEcosystems" class="nav-tab" type="button">Ecosystems</button><button id="navRepos" class="nav-tab" type="button">Repos</button><button id="navCourses" class="nav-tab" type="button">Courses</button><button id="navCompanies" class="nav-tab" type="button">AI Companies</button></nav><span class="header-kicker" id="headerKicker">مسارك لفهم الذكاء الاصطناعي</span><button id="themeToggle" class="theme-toggle" type="button" aria-pressed="true">☀ الوضع الفاتح</button><button id="language" class="language" type="button" aria-label="Switch language">EN <span>↗</span></button></div>
   </header>
   <main>
     <section id="home" class="map-home" aria-label="AI route map"><div class="map-scroll"><div id="routeMap" class="route-map"></div></div></section>
@@ -39,6 +40,9 @@
       <section id="simLab" class="sim-lab" hidden></section>
     </section>
     <section id="ecosystemsView" class="ecosystems-view" hidden></section>
+    <section id="reposView" class="resource-view" hidden></section>
+    <section id="coursesView" class="resource-view" hidden></section>
+    <section id="aiCompaniesView" class="resource-view" hidden></section>
     <section id="mathSkillsView" class="math-skills-view" hidden></section>
     <section id="complexityView" class="complexity-view" hidden></section>
     <section id="stageView" class="stage-view" hidden>
@@ -62,7 +66,8 @@
   <script src="math-skills.js?v=math-4"></script>
   <script src="complexity.js?v=complexity-1"></script>
   <script src="home-map.js?v=map-4"></script>
-  <script src="explorer.js?v=nav-2"></script>
+  <script src="resource-hub.js?v=resources-1"></script>
+  <script src="explorer.js?v=nav-3"></script>
   <script type="module" src="stage-3d.js"></script>
 </body>
 </html>
