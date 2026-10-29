@@ -23,7 +23,7 @@
     if(!root)return;
     root.setAttribute('dir',lang==='ar'?'rtl':'ltr');
     root.innerHTML=`<div class="route-header"><span class="route-kicker">KHAMIS.AI / LEARNING ROUTE</span><h1>${t.title}</h1><p>${t.intro}</p></div><div class="route-phases">${phases.map((phase,index)=>{
-      const [title,detail,stopText,note]=phase[lang],stops=stopText.split('|');
+      const [title,,stopText]=phase[lang],stops=stopText.split('|');
       const stations=stops.map((stop,i)=>{
         const link=phase.links?.[i],content=`<span class="route-station-dot"></span><span class="route-station-name">${esc(stop)}</span>`;
         if(link==='rag')return `<div class="route-station route-station-linked"><span class="route-station-main">${content}</span><span class="route-station-actions"><button type="button" data-map-page="stages">${t.stages}</button><button type="button" data-map-page="simulation">${t.simulation}</button></span></div>`;
@@ -32,7 +32,8 @@
       const branches=phase.branches?`<div class="route-branches">${phase.branches.map((items,i)=>`<div><span>${esc(stops[i])}</span><small>${items.map(esc).join(' · ')}</small></div>`).join('')}</div>`:'';
       const tools=phase.tools.length?`<div class="route-tools"><strong>${t.tools}</strong><span class="route-tool-list">${phase.tools.map(tool=>`<span class="route-tool">${esc(tool)}</span>`).join('')}</span></div>`:'';
       const extra=phase.extra?`<button class="route-extra" type="button" data-map-page="${phase.extra}">${t.explore} · Ecosystems ↗</button>`:'';
-      return `<section class="route-phase" style="--phase-color:${phase.color};--phase-index:${index}" aria-label="${esc(title)}"><div class="route-phase-heading"><span class="route-number">${String(index+1).padStart(2,'0')}</span><div><h2>${esc(title)}</h2><p>${esc(detail)}</p></div></div><div class="route-stations ${phase.branches?'route-stations-branch':''}">${stations}</div>${branches}<div class="route-phase-foot">${tools}<p>${esc(note)}</p>${extra}</div></section>`;
+      const footer=tools||extra?`<div class="route-phase-foot">${tools}${extra}</div>`:'';
+      return `<section class="route-phase" style="--phase-color:${phase.color};--phase-index:${index}" aria-label="${esc(title)}"><div class="route-phase-heading"><span class="route-number">${String(index+1).padStart(2,'0')}</span><h2>${esc(title)}</h2></div><div class="route-stations ${phase.branches?'route-stations-branch':''}">${stations}</div>${branches}${footer}</section>`;
     }).join('')}</div><p class="route-legend"><span></span>${t.legend}</p>`;
     root.querySelectorAll('[data-map-page]').forEach(button=>button.addEventListener('click',()=>actions[button.dataset.mapPage]?.()));
   }
